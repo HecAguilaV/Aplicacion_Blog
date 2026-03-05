@@ -1,0 +1,16 @@
+<p><strong>Título:</strong> <%= @post.title %></p>
+<p><strong>Cuerpo:</strong> <%= @post.body %></p>
+
+<h2>Comentarios</h2>
+<% @post.comments.each do |comment| %>
+  <p><%= comment.body %> - <%= button_to 'Eliminar', comment, method: :delete %></p>
+<% end %>
+
+<h3>Añadir Comentario:</h3>
+<%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <p><%= form.label :body %><br><%= form.text_area :body %></p>
+  <p><%= form.submit %></p>
+<% end %>
+
+<%= link_to 'Editar', edit_post_path(@post) %> |
+<%= link_to 'Volver', posts_path %>
