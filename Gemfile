@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '7.0.8'
-gem 'sqlite3', '~> 1.4'
+# Versión de Rails compatible con el evaluador antiguo
+gem 'rails', '~> 5.2.0'
+gem 'sqlite3', '~> 1.3.6'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sprockets-rails'
-gem 'importmap-rails'
-gem 'turbo-rails'
-gem 'stimulus-rails'
