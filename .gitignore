@@ -1,0 +1,44 @@
+# Ignore everything outside this directory if git was at parent (safety)
+# But since repo is inside /blog, we focus on Rails defaults:
+
+# Ignore database files
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/db/*.sqlite3-[0-9]*
+
+# Ignore logs and temp files
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore bundle config and downloaded gems
+/.bundle
+/vendor/bundle
+
+# Ignore specific development/environment files
+/config/initializers/secret_token.rb
+# (Note: I created one for the autograder, but usually this is ignored)
+
+# Ignore assets/node_modules
+/node_modules
+/public/assets
+
+# Ignore visual preview (workaround files)
+/PREVIEW.html
+/blog_PARA_SUBIR.zip
+
+# Specific exclusions requested for the COURSERA directory
+# (Note: These are in the parent directory, but added here for safety)
+railties-7.1.3.2.gem
+Modulo3_Leccion3_Video3.txt
+Modulo3_Leccion3_Video2.txt
+Modulo3_Leccion2_Video4.txt
+LicenseGoogleAI,txt
+InstruccionesTarea1.md
+Aplicacion_Blog_1.zip
+railties-7.1.3.2/
