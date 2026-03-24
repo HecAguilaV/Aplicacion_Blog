@@ -1,0 +1,31 @@
+<div class="card">
+  <h1><%= @post.title %></h1>
+  <div class="meta">Por <%= @post.user.full_name %> - <%= time_ago_in_words(@post.created_at) %></div>
+  <br>
+  <p><%= simple_format(@post.body) %></p>
+  <div class="actions">
+    <%= link_to "Editar", edit_post_path(@post), class: "btn btn-sm" %>
+    <%= link_to "Eliminar", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Seguro?" }, class: "btn btn-sm btn-danger" %>
+    <%= link_to "Volver", posts_path, class: "btn btn-sm" %>
+  </div>
+</div>
+
+<h2 style="margin-top: 2rem; color: #c4b5fd;">Comentarios (<%= @post.comments.count %>)</h2>
+
+<% @post.comments.latest_first.each do |comment| %>
+  <div class="comment">
+    <strong><%= comment.user.full_name %></strong>
+    <span class="meta"> - <%= time_ago_in_words(comment.created_at) %></span>
+    <p><%= comment.body %></p>
+  </div>
+<% end %>
+
+<h3 style="margin-top: 1.5rem; color: #a78bfa;">Agregar comentario</h3>
+<%= form_with(model: [@post, @comment], local: true) do |f| %>
+  <label>Usuario</label>
+  <%= f.collection_select :user_id, User.all, :id, :full_name, { prompt: "Seleccionar..." }, class: "form-control" %>
+  <label>Comentario</label>
+  <%= f.text_area :body %>
+  <br>
+  <%= f.submit "Comentar", class: "btn" %>
+<% end %>

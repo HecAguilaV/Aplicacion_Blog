@@ -1,0 +1,17 @@
+<div class="card">
+  <h1><%= @user.full_name %></h1>
+  <p>Miembro desde <%= @user.created_at.strftime("%d %b %Y") %></p>
+  <div class="actions">
+    <%= link_to "Ver todos los usuarios", users_path, class: "btn btn-sm" %>
+  </div>
+</div>
+
+<h2 style="margin-top: 2rem; color: #c4b5fd;">Posts de <%= @user.first_name %> (<%= @user.posts.count %>)</h2>
+
+<% @user.posts.latest_first.each do |post| %>
+  <div class="card" style="margin-top: 1rem;">
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <p style="font-size: 0.9em;"><%= truncate(post.body, length: 150) %></p>
+    <span class="meta"><%= time_ago_in_words(post.created_at) %></span>
+  </div>
+<% end %>

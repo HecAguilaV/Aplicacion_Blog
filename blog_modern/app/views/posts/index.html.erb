@@ -1,0 +1,10 @@
+<h1>Posts</h1>
+<%= link_to "Nuevo Post", new_post_path, class: "btn" %>
+<br><br>
+<% @posts.each do |post| %>
+  <div class="card">
+    <h2><%= link_to post.title, post_path(post) %></h2>
+    <p><%= truncate(post.body, length: 200) %></p>
+    <div class="meta">Por <%= post.user.full_name %> - <%= time_ago_in_words(post.created_at) %></div>
+  </div>
+<% end %>

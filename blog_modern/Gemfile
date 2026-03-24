@@ -1,0 +1,12 @@
+source "https://rubygems.org"
+
+gem "propshaft"
+
+gem "rails", "8.0.1"
+gem "sqlite3"
+gem "puma"
+gem "importmap-rails"
+gem "turbo-rails"
+gem "stimulus-rails"
+gem "tailwindcss-rails"
+gem "tzinfo-data", platforms: [:windows, :jruby]

@@ -1,0 +1,10 @@
+<%= form_with(model: post, local: true) do |f| %>
+  <label>Autor</label>
+  <%= f.collection_select :user_id, User.all, :id, :full_name, { prompt: "Seleccionar autor..." } %>
+  <label>Titulo</label>
+  <%= f.text_field :title %>
+  <label>Contenido</label>
+  <%= f.text_area :body %>
+  <br>
+  <%= f.submit "Guardar", class: "btn" %>
+<% end %>
